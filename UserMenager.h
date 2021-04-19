@@ -27,6 +27,8 @@ public:
     };
     void userRegistration();
     void showAllUsers();
+    bool ifUserIsLogged();
+    int getIdLoggedUser();
 
 };
 

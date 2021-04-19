@@ -22,7 +22,6 @@ public:
     //FileWithUsers(string fileName) : XmlFile(fileName){};
     void addUserToFile(User user);
     bool checkLogin(string login);
-    int findLastUserId();
     vector <User> loadUserFromFile();
 
 };
