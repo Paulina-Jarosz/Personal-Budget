@@ -1,0 +1,34 @@
+#ifndef USERMENAGER_H
+#define USERMENAGER_H
+
+#include <iostream>
+#include <vector>
+
+#include "FileWithUsers.h"
+#include "User.h"
+
+
+using namespace std;
+
+class UserMenager{
+
+    int idLoggedUser;
+    vector <User> users;
+    FileWithUsers fileWithUsers;
+
+    User provideNewUserData();
+    int getNewUserId();
+    bool isLoginExist(string login);
+
+public:
+    UserMenager (){
+    idLoggedUser = 0;
+    users = fileWithUsers.loadUserFromFile();
+    };
+    void userRegistration();
+    void showAllUsers();
+
+};
+
+
+#endif
