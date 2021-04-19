@@ -7,32 +7,82 @@ FileWithUsers :: FileWithUsers(){
 
 void FileWithUsers :: addUserToFile(User user)
 {
-    CMarkup XmlFile;
-    XmlFile.Load(fileNameWithUsers);
-    //XmlFile.AddElem( "ROOT" );
-    //XmlFile.IntoElem();
-    XmlFile.AddElem( "USERID", user.getUserId() );
-    XmlFile.IntoElem();
-    XmlFile.AddElem( "LOGIN", user.getLogin() );
-    XmlFile.AddElem( "PASSWORD", user.getPassword() );
-    XmlFile.AddElem( "NAME", user.getUserName() );
-    XmlFile.AddElem( "SURNAME", user.getUserSurname() );
+    CMarkup xml;
+    bool fileExists = xml.Load( "Users.xml" );
+     if (!fileExists)
+    {
+        xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
+        xml.AddElem("Users");
+    }
 
-    XmlFile.Save(fileNameWithUsers);
+    xml.FindElem();
+    xml.IntoElem();
+    xml.AddElem("User");
+    xml.IntoElem();
+    xml.AddElem( "UserID", user.getUserId() );
+    xml.IntoElem();
+    xml.AddElem( "Login", user.getLogin() );
+    xml.AddElem( "Password", user.getPassword() );
+    xml.AddElem( "Name", user.getUserName() );
+    xml.AddElem( "Surname", user.getUserSurname() );
+
+    xml.Save(fileNameWithUsers);
 
 }
 
-bool FileWithUsers :: checkLogin(string login) {
-    CMarkup XmlFile;
-    //bool bSuccess  = XmlFile.Load(fileNameWithUsers);
-    XmlFile.Load(fileNameWithUsers);
-    XmlFile.SetDoc( fileNameWithUsers );
+vector <User> FileWithUsers :: loadUserFromFile()
+{
+    User user;
+    vector <User> users;
 
-    XmlFile.ResetPos();
-    XmlFile.FindElem();
-    XmlFile.IntoElem();
-    while ( XmlFile.FindElem("LOGIN") ){
-        if ( XmlFile.GetChildData() == login ) {
+    CMarkup xml;
+    bool fileExists = xml.Load( "Users.xml" );
+
+    if (fileExists == true)
+    {
+        xml.FindElem();
+        xml.IntoElem();
+        while ( xml.FindElem("User") == true) {
+
+            xml.IntoElem();
+            xml.FindElem( "UserID");
+            int userId = atoi( MCD_2PCSZ(xml.GetData()));
+            user.setupUserId(userId);
+            xml.IntoElem();
+            xml.FindElem( "Login");
+            string login = xml.GetData().c_str();
+            user.setupLogin(login);
+            xml.FindElem( "Password");
+            string password = xml.GetData();
+            user.setupPassword(password);
+            xml.FindElem( "Name");
+            string userName = xml.GetData();
+            user.setupUserName(userName);
+            xml.FindElem( "Surname");
+            string userSurname = xml.GetData();
+            user.setupUserSurname(userSurname);
+            users.push_back(user);
+
+            xml.OutOfElem();
+            xml.OutOfElem();
+        }
+    }
+
+    return users;
+}
+
+
+bool FileWithUsers :: checkLogin(string login) {
+    CMarkup xml;
+    bool fileExists = xml.Load( "Users.xml" );
+    xml.Load(fileNameWithUsers);
+    xml.SetDoc( fileNameWithUsers );
+
+    xml.ResetPos();
+    xml.FindElem();
+    xml.IntoElem();
+    while ( xml.FindElem("LOGIN") ){
+        if ( xml.GetChildData() == login ) {
             return true;
         }
     }

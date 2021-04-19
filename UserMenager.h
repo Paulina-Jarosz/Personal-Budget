@@ -14,12 +14,17 @@ class UserMenager{
 
     int idLoggedUser;
     vector <User> users;
+    FileWithUsers fileWithUsers;
 
     User provideNewUserData();
     int getNewUserId();
     bool isLoginExist(string login);
 
 public:
+    UserMenager (){
+    idLoggedUser = 0;
+    users = fileWithUsers.loadUserFromFile();
+    };
     void userRegistration();
     void showAllUsers();
 

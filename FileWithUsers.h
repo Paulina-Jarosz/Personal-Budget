@@ -23,7 +23,7 @@ public:
     void addUserToFile(User user);
     bool checkLogin(string login);
     int findLastUserId();
-    //vector <User> loadUserFromFile();
+    vector <User> loadUserFromFile();
 
 };
 
