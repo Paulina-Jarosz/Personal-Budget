@@ -20,7 +20,6 @@ void FileWithUsers :: addUserToFile(User user)
     xml.AddElem("User");
     xml.IntoElem();
     xml.AddElem( "UserID", user.getUserId() );
-    xml.IntoElem();
     xml.AddElem( "Login", user.getLogin() );
     xml.AddElem( "Password", user.getPassword() );
     xml.AddElem( "Name", user.getUserName() );
@@ -48,7 +47,6 @@ vector <User> FileWithUsers :: loadUserFromFile()
             xml.FindElem( "UserID");
             int userId = atoi(xml.GetData().c_str());//atoi( MCD_2PCSZ(xml.GetData()));
             user.setupUserId(userId);
-            xml.IntoElem();
             xml.FindElem( "Login");
             string login = xml.GetData();
             user.setupLogin(login);
@@ -64,7 +62,6 @@ vector <User> FileWithUsers :: loadUserFromFile()
             users.push_back(user);
 
             xml.OutOfElem();
-            xml.OutOfElem();
         }
     }
 
@@ -75,13 +72,13 @@ bool FileWithUsers :: checkLogin(string login) {
     CMarkup xml;
     bool fileExists = xml.Load(fileNameWithUsers);
     xml.Load(fileNameWithUsers);
-    xml.SetDoc( fileNameWithUsers );
+    //xml.SetDoc( fileNameWithUsers );
 
     xml.ResetPos();
-    xml.FindElem();
-    xml.IntoElem();
-    while ( xml.FindElem("LOGIN") ) {
-        if ( xml.GetChildData() == login ) {
+    //xml.FindElem();
+    //xml.IntoElem();
+    while ( xml.FindElem("LOGIN") == true ) {
+        if ( xml.GetData() == login ) {
             return true;
         }
     }
