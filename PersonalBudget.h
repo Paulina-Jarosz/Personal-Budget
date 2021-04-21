@@ -16,7 +16,9 @@ public:
     void userRegistration();
     void showAllUsers();
     bool ifUserIsLogged();
-    void userLogIn();
+    int userLogIn();
+    void logOffUser();
+    char chooseOptionFromUserMenu();
 
 };
 

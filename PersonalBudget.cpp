@@ -31,11 +31,21 @@ bool PersonalBudget :: ifUserIsLogged(){
     userMenager.ifUserIsLogged();
 }
 
-void PersonalBudget :: userLogIn() {
+int PersonalBudget :: userLogIn() {
 
     userMenager.userLogIn();
     /*if (userMenager.czyUzytkownikJestZalogowany())
     {
         item = new Item (userMenager.getIdLoggedUser());
     }*/
+}
+
+void PersonalBudget :: logOffUser(){
+    userMenager.logOffUser();
+    //delete item;
+    //item = NULL;
+}
+
+char PersonalBudget :: chooseOptionFromUserMenu(){
+    userMenager.chooseOptionFromUserMenu();
 }

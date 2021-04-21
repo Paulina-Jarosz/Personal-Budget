@@ -112,3 +112,29 @@ int UserMenager :: userLogIn() {
     system("pause");
     return 0;
 }
+
+void UserMenager :: logOffUser() {
+    idLoggedUser = 0;
+}
+
+char UserMenager :: chooseOptionFromUserMenu()
+{
+    char choose;
+
+    system("cls");
+    cout << " >>> USER MENU <<<" << endl;
+    cout << "---------------------------" << endl;
+    cout << "1. Add income" << endl;
+    cout << "2. Add expense" << endl;
+    cout << "3. Display balance for current month" << endl;
+    cout << "4. Display balance for previous month" << endl;
+    cout << "5. Display balance for selected period" << endl;
+    cout << "---------------------------" << endl;
+    cout << "6. Zmien haslo" << endl;
+    cout << "7. Wyloguj sie" << endl;
+    cout << "---------------------------" << endl;
+    cout << "Your choice: ";
+    choose = AdditionalMethods :: getCharacter();
+
+    return choose;
+}
