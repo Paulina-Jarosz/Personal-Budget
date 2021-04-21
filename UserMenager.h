@@ -31,6 +31,8 @@ public:
     bool ifUserIsLogged();
     int getIdLoggedUser();
     int userLogIn();
+    void logOffUser();
+    char chooseOptionFromUserMenu();
 
 };
 
