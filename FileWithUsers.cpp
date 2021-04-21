@@ -8,7 +8,7 @@ FileWithUsers :: FileWithUsers(){
 void FileWithUsers :: addUserToFile(User user)
 {
     CMarkup xml;
-    bool fileExists = xml.Load( "Users.xml" );
+    bool fileExists = xml.Load(fileNameWithUsers);
      if (!fileExists)
     {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
@@ -20,7 +20,6 @@ void FileWithUsers :: addUserToFile(User user)
     xml.AddElem("User");
     xml.IntoElem();
     xml.AddElem( "UserID", user.getUserId() );
-    xml.IntoElem();
     xml.AddElem( "Login", user.getLogin() );
     xml.AddElem( "Password", user.getPassword() );
     xml.AddElem( "Name", user.getUserName() );
@@ -36,7 +35,7 @@ vector <User> FileWithUsers :: loadUserFromFile()
     vector <User> users;
 
     CMarkup xml;
-    bool fileExists = xml.Load( "Users.xml" );
+    bool fileExists = xml.Load(fileNameWithUsers);
 
     if (fileExists == true)
     {
@@ -46,11 +45,10 @@ vector <User> FileWithUsers :: loadUserFromFile()
 
             xml.IntoElem();
             xml.FindElem( "UserID");
-            int userId = atoi( MCD_2PCSZ(xml.GetData()));
+            int userId = atoi(xml.GetData().c_str());//atoi( MCD_2PCSZ(xml.GetData()));
             user.setupUserId(userId);
-            xml.IntoElem();
             xml.FindElem( "Login");
-            string login = xml.GetData().c_str();
+            string login = xml.GetData();
             user.setupLogin(login);
             xml.FindElem( "Password");
             string password = xml.GetData();
@@ -64,45 +62,26 @@ vector <User> FileWithUsers :: loadUserFromFile()
             users.push_back(user);
 
             xml.OutOfElem();
-            xml.OutOfElem();
         }
     }
 
     return users;
 }
 
-
 bool FileWithUsers :: checkLogin(string login) {
     CMarkup xml;
-    bool fileExists = xml.Load( "Users.xml" );
+    bool fileExists = xml.Load(fileNameWithUsers);
     xml.Load(fileNameWithUsers);
-    xml.SetDoc( fileNameWithUsers );
+    //xml.SetDoc( fileNameWithUsers );
 
     xml.ResetPos();
-    xml.FindElem();
-    xml.IntoElem();
-    while ( xml.FindElem("LOGIN") ){
-        if ( xml.GetChildData() == login ) {
+    //xml.FindElem();
+    //xml.IntoElem();
+    while ( xml.FindElem("LOGIN") == true ) {
+        if ( xml.GetData() == login ) {
             return true;
         }
     }
-return false;
+    return false;
 }
 
-int FileWithUsers :: findLastUserId(){
-    int lastUserId;
-     CMarkup XmlFile;
-    XmlFile.Load("C:\\1-PersBudget\\Users.xml");
-    //XmlFile.SetDoc( fileNameWithUsers );
-
-    XmlFile.ResetPos();
-    XmlFile.FindElem();
-    //XmlFile.IntoElem();
-    while ( XmlFile.FindElem("USERID") ){
-        lastUserId = atoi( MCD_2PCSZ(XmlFile.GetData()));
-        cout<< " Last user ID is: "<< endl;
-        cout << lastUserId << endl;
-        }
-return lastUserId;
-
-}

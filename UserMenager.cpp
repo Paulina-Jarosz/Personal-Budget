@@ -62,10 +62,21 @@ bool UserMenager :: isLoginExist(string login)
 void UserMenager :: showAllUsers() {
 
     for (int i = 0; i < users.size(); i++) {
-        cout<< users[i].getUserId() << endl;
-        cout<< users[i].getLogin() << endl;
-        cout<< users[i].getPassword() << endl;
-        cout<< users[i].getUserName() << endl;
-        cout<< users[i].getUserSurname() << endl;
+        cout << "User ID: " << users[i].getUserId() << endl;
+        cout << "Login: " << users[i].getLogin() << endl;
+        cout << "Password: " << users[i].getPassword() << endl;
+        cout << "User name: " << users[i].getUserName() << endl;
+        cout << "User surname: " << users[i].getUserSurname() << endl << endl;
     }
+}
+
+bool UserMenager :: ifUserIsLogged() {
+    if (idLoggedUser > 0)
+        return true;
+    else
+        return false;
+}
+
+int UserMenager :: getIdLoggedUser() {
+    return idLoggedUser;
 }
