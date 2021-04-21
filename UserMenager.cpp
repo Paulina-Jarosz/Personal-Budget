@@ -82,3 +82,33 @@ bool UserMenager :: ifUserIsLogged() {
 int UserMenager :: getIdLoggedUser() {
     return idLoggedUser;
 }
+
+int UserMenager :: userLogIn() {
+    string providedLogin = "", providedPassword = "";
+
+    cout << endl << "Provide login: ";
+    cin >> providedLogin;
+
+    for (int i = 0; i < users.size(); i++) {
+
+        if (users[i].getLogin() == providedLogin) {
+            for (int numberOfTrial = 3; numberOfTrial > 0; numberOfTrial--) {
+                cout << "Provide password. You have " << numberOfTrial << " left: ";
+                cin >> providedPassword;
+
+                if (users[i].getPassword() == providedPassword) {
+                    cout << endl << "You logged successfully" << endl << endl;
+                    system("pause");
+                    idLoggedUser = users[i].getUserId();
+                    return idLoggedUser;
+                }
+            }
+            cout << "You have provided 3 times incorrect password" << endl;
+            system("pause");
+            return 0;
+        }
+    }
+    cout << "There is no user with this login" << endl << endl;
+    system("pause");
+    return 0;
+}

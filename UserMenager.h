@@ -30,6 +30,7 @@ public:
     void showAllUsers();
     bool ifUserIsLogged();
     int getIdLoggedUser();
+    int userLogIn();
 
 };
 

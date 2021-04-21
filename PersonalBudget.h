@@ -15,6 +15,8 @@ public:
     char chooseOptionFromMainMenu();
     void userRegistration();
     void showAllUsers();
+    bool ifUserIsLogged();
+    void userLogIn();
 
 };
 
