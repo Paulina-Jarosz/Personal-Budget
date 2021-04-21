@@ -12,6 +12,7 @@ class PersonalBudget {
     UserMenager userMenager;
 
 public:
+    char choosOptionFromMainMenu();
     void userRegistration();
     void showAllUsers();
 
