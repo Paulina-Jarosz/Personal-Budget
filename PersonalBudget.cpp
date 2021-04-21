@@ -1,6 +1,6 @@
 #include "PersonalBudget.h"
 
-char PersonalBudget ::choosOptionFromMainMenu()
+char PersonalBudget ::chooseOptionFromMainMenu()
 {
     char choose;
 
@@ -12,7 +12,7 @@ char PersonalBudget ::choosOptionFromMainMenu()
     cout << "9. End " << endl;
     cout << "---------------------------" << endl;
     cout << "Your choice ";
-    //wybor = MetodyPomocnicze :: wczytajZnak();
+    //choose = AdditionalMethods :: getCharacter();
 
     return choose;
 }

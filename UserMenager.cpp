@@ -29,9 +29,11 @@ User UserMenager :: provideNewUserData()
     user.setupPassword(password);
     cout << "Provide name: ";
     cin >> userName;
+    userName = AdditionalMethods :: changeFirstLetterToCapitalAndOtherToLowercase(userName);
     user.setupUserName(userName);
     cout << "Provide surname: ";
     cin >> userSurname;
+    userSurname = AdditionalMethods :: changeFirstLetterToCapitalAndOtherToLowercase(userSurname);
     user.setupUserSurname(userSurname);
 
     return user;

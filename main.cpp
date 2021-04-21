@@ -7,7 +7,7 @@ int main()
 {
     PersonalBudget personalBudget;
     personalBudget.userRegistration();
-    personalBudget.userRegistration();
+    //personalBudget.userRegistration();
     //personalBudget.userRegistration();
     personalBudget.showAllUsers();
     return 0;
