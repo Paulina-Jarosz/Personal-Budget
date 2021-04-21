@@ -6,6 +6,7 @@
 
 #include "FileWithUsers.h"
 #include "User.h"
+#include "AdditionalMethods.h"
 
 
 using namespace std;
@@ -29,6 +30,7 @@ public:
     void showAllUsers();
     bool ifUserIsLogged();
     int getIdLoggedUser();
+    int userLogIn();
 
 };
 

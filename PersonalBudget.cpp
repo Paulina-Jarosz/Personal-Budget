@@ -1,6 +1,6 @@
 #include "PersonalBudget.h"
 
-char PersonalBudget ::choosOptionFromMainMenu()
+char PersonalBudget ::chooseOptionFromMainMenu()
 {
     char choose;
 
@@ -11,8 +11,8 @@ char PersonalBudget ::choosOptionFromMainMenu()
     cout << "2. Login" << endl;
     cout << "9. End " << endl;
     cout << "---------------------------" << endl;
-    cout << "Your choice ";
-    //wybor = MetodyPomocnicze :: wczytajZnak();
+    cout << "Your choice: ";
+    choose = AdditionalMethods :: getCharacter();
 
     return choose;
 }
@@ -25,4 +25,17 @@ void PersonalBudget :: userRegistration() {
 void PersonalBudget :: showAllUsers() {
 
     userMenager.showAllUsers();
+}
+
+bool PersonalBudget :: ifUserIsLogged(){
+    userMenager.ifUserIsLogged();
+}
+
+void PersonalBudget :: userLogIn() {
+
+    userMenager.userLogIn();
+    /*if (userMenager.czyUzytkownikJestZalogowany())
+    {
+        item = new Item (userMenager.getIdLoggedUser());
+    }*/
 }

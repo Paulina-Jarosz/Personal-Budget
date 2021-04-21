@@ -12,9 +12,11 @@ class PersonalBudget {
     UserMenager userMenager;
 
 public:
-    char choosOptionFromMainMenu();
+    char chooseOptionFromMainMenu();
     void userRegistration();
     void showAllUsers();
+    bool ifUserIsLogged();
+    void userLogIn();
 
 };
 
