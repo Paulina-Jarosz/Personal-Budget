@@ -7,6 +7,7 @@
 #include "FileWithUsers.h"
 #include "User.h"
 #include "AdditionalMethods.h"
+#include "ItemMenager.h"
 
 
 using namespace std;

@@ -12,6 +12,10 @@ class AdditionalMethods {
 public:
     static char getCharacter();
     static string changeFirstLetterToCapitalAndOtherToLowercase(string text);
+    static string getNumber(string text, int characterPosition);
+    static float loadFloat();
+    static int  convertStringToInt(string number);
+    static string convertIntNaString(int number);
 
 };
 
