@@ -13,6 +13,7 @@ using namespace std;
 class ItemMenager : public Item {
 
     int incomeId;
+    vector <Item> items;
     vector <Item> expenses;
     vector <Item> incomes;
     //IncomeFile incomeFile;
