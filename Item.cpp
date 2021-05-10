@@ -13,6 +13,9 @@ void Item :: setupItemAmount (float newItemAmount) {
         itemAmount = newItemAmount;
 }
 
+void Item :: setupDate (string newDate) {
+        itemDate = newDate;
+}
 int Item :: getItemId() {
     return itemId;
 }

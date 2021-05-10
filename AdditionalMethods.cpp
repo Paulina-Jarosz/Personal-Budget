@@ -44,7 +44,7 @@ string AdditionalMethods :: getNumber(string text, int characterPosition)
 float AdditionalMethods :: loadFloat()
 {
     string providedData = "";
-    float number = 0.0;
+    float number;
 
     while (true)
     {

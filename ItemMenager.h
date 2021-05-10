@@ -7,6 +7,7 @@
 #include "Item.h"
 #include "User.h"
 #include "UserMenager.h"
+#include "DateMenager.h"
 
 using namespace std;
 
@@ -26,6 +27,7 @@ public:
     //items = incomeFile.getIncomeFromFile();
     };
     void addIncome(int idLoggedUser);
+    bool provideDate();
 
 
 };
