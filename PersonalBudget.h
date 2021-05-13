@@ -4,14 +4,25 @@
 #include <iostream>
 
 #include "UserMenager.h"
+#include "ItemMenager.h"
 
 using namespace std;
 
 class PersonalBudget {
 
     UserMenager userMenager;
+    ItemMenager *itemMenager;
 
 public:
+    PersonalBudget()
+    : userMenager() {
+        itemMenager = NULL;
+    }
+    ~PersonalBudget() {
+        delete itemMenager;
+        itemMenager = NULL;
+    };
+
     char chooseOptionFromMainMenu();
     void userRegistration();
     void showAllUsers();
@@ -19,6 +30,7 @@ public:
     int userLogIn();
     void logOffUser();
     char chooseOptionFromUserMenu();
+    void addIncome(int idLoggedUser);
 
 };
 

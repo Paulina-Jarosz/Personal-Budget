@@ -29,3 +29,49 @@ string AdditionalMethods :: changeFirstLetterToCapitalAndOtherToLowercase(string
     }
     return text;
 }
+
+string AdditionalMethods :: getNumber(string text, int characterPosition)
+{
+    string number = "";
+    while(isdigit(text[characterPosition]) == true)
+    {
+        number += text[characterPosition];
+        characterPosition ++;
+    }
+    return number;
+}
+
+float AdditionalMethods :: loadFloat()
+{
+    string providedData = "";
+    float number = 0.0;
+
+    while (true)
+    {
+        cin.clear();
+        getline(cin, providedData);
+
+        stringstream myStream(providedData);
+        if (myStream >> number)
+            break;
+        cout << "This is not the amount. Please add again. " << endl;
+    }
+    return number;
+}
+
+int AdditionalMethods :: convertStringToInt(string number)
+{
+    int numberInt;
+    istringstream iss(number);
+    iss >> numberInt;
+
+    return numberInt;
+}
+
+string AdditionalMethods :: convertIntNaString(int number)
+{
+    ostringstream ss;
+    ss << number;
+    string str = ss.str();
+    return str;
+}

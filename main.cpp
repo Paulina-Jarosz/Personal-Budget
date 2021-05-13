@@ -24,7 +24,7 @@ int main() {
 
                 switch (choose) {
                 case '1':
-                    //personalBudget.addIncome();
+                    personalBudget.addIncome(idLoggedUser);
                     break;
                 case '2':
                     //personalBudget.addExpense();

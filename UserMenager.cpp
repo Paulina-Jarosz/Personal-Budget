@@ -130,8 +130,8 @@ char UserMenager :: chooseOptionFromUserMenu()
     cout << "4. Display balance for previous month" << endl;
     cout << "5. Display balance for selected period" << endl;
     cout << "---------------------------" << endl;
-    cout << "6. Zmien haslo" << endl;
-    cout << "7. Wyloguj sie" << endl;
+    cout << "6. Change password" << endl;
+    cout << "7. Log off" << endl;
     cout << "---------------------------" << endl;
     cout << "Your choice: ";
     choose = AdditionalMethods :: getCharacter();
