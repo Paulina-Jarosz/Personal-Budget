@@ -66,10 +66,17 @@ bool DateMenager :: isValidMonth(int month) {
 bool DateMenager :: isValidDay (int dayConverted, int monthConverted, int yearConverted) {
 
     if (monthConverted == 2) {
-        if (isLeap(yearConverted) == true) {
-            if (dayConverted >= 1 && dayConverted <= 29)
+        if ((isLeap(yearConverted) == true) && (dayConverted == 29)) {
+            //if (dayConverted >= 1 && dayConverted <= 29)
                 return true;
-        } else return false;
+        } else if (dayConverted >= 1 && dayConverted <= 28)
+        {
+            return true;
+        }
+        else if (dayConverted < 1 && dayConverted >= 30)
+        {
+            return false;
+        }
     }
 
     else if (monthConverted == 4 || monthConverted == 6 ||
@@ -89,6 +96,8 @@ bool DateMenager :: isValidDate(Date dateOb)
     int yearConverted = convertStringDateToInt(year);
     int dayConverted = convertStringDateToInt(day);
 
+    cout << "konwertowany miesiac : "<<monthConverted <<endl;
+
     if (isValidYear (yearConverted) == false) {
         return false;
     } else if (isValidMonth(monthConverted) == false) {
@@ -104,11 +113,10 @@ bool DateMenager :: isValidDate(Date dateOb)
     }
 }
 
-bool DateMenager :: isLeap(int year)
-{
-return (((year % 4 == 0) &&
-         (year % 100 != 0)) ||
-         (year % 400 == 0));
+bool DateMenager :: isLeap(int year) {
+    if(((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
+        return true;
+    } else return false;
 }
 
 string DateMenager :: currentDate(){
