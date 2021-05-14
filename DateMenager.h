@@ -13,27 +13,27 @@ using namespace std;
 
 class DateMenager{
 
-    Date dateOb;
+    time_t calculatedTime;
+    struct tm * data;
+    int year, month, day;
 
-    const int MAX_VALID_YR = 2021;  //current month?
     const int MIN_VALID_YR = 2000; //2000-01-01
 
     bool isLeap(int year);
 
 public:
-    int convertStringDateToInt(string date);
-    Date divideDate(string date);
+    int getCurrentDate();
+    int getCurrentYear();
+    int getCurrentMonth();
+    int getCurrentDay();
 
-    string currentDate();
-    int countDays(string month, string year);
-    void showDate(Date dateOb);
+    bool isDateCorrect (string date);
     bool isValidYear(int year);
     bool isValidMonth (int month);
-    void isValidFormatDate(string date);
-    bool isValidDate(Date dateOb);
     bool isValidDay (int dayConverted, int monthConverted, int yearConverted);
-    bool isDateCorrect(string date);
+    bool isValidFormatDate(string date);
 
+    void showDate(Date dateOb);
 
 };
 

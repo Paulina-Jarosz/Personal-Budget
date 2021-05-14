@@ -13,7 +13,6 @@ class Date{
     string month;
     string year;
 
-
 public:
     Date(string date = "")
     {

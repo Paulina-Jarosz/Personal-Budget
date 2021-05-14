@@ -19,7 +19,7 @@ class ItemMenager : public Item {
     vector <Item> incomes;
     //IncomeFile incomeFile;
 
-    Item provideItemDetails();
+    Item provideIncomeDetails();
     int getNewItemId();
 
 public:
@@ -27,8 +27,6 @@ public:
     //items = incomeFile.getIncomeFromFile();
     };
     void addIncome(int idLoggedUser);
-    bool provideDate();
-
 
 };
 #endif
