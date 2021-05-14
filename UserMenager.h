@@ -8,6 +8,7 @@
 #include "User.h"
 #include "AdditionalMethods.h"
 #include "ItemMenager.h"
+#include "DateMenager.h"
 
 
 using namespace std;

@@ -44,7 +44,7 @@ string AdditionalMethods :: getNumber(string text, int characterPosition)
 float AdditionalMethods :: loadFloat()
 {
     string providedData = "";
-    float number = 0.0;
+    float number;
 
     while (true)
     {
@@ -74,4 +74,23 @@ string AdditionalMethods :: convertIntNaString(int number)
     ss << number;
     string str = ss.str();
     return str;
+}
+
+string AdditionalMethods :: loadLine()
+{
+    string input = "";
+    getline(cin, input);
+    return input;
+}
+
+string AdditionalMethods :: removeDashFromDate(string date) {
+
+    string stringDatewithoutDash;
+
+    for (int i = 0 ; i <= date.length(); i++) {
+        if (date[i] != '-') {
+            stringDatewithoutDash += date[i];
+        }
+    }
+    return stringDatewithoutDash;
 }

@@ -24,3 +24,7 @@ void Date :: setMonth (string newMonth) {
 void Date :: setDay (string newDay) {
     day = newDay;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> feature_create_date_class

@@ -14,8 +14,10 @@ public:
     static string changeFirstLetterToCapitalAndOtherToLowercase(string text);
     static string getNumber(string text, int characterPosition);
     static float loadFloat();
+    static string loadLine();
     static int  convertStringToInt(string number);
     static string convertIntNaString(int number);
+    static string removeDashFromDate (string date);
 
 };
 
