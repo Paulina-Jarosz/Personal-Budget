@@ -6,7 +6,7 @@ using namespace std;
 int main() {
     PersonalBudget personalBudget;
     char choose = 0;
-    int idLoggedUser =0;
+    int idLoggedUser = 0;
 
     while (true) {
         if (personalBudget.ifUserIsLogged() == false) {
@@ -24,7 +24,8 @@ int main() {
 
                 switch (choose) {
                 case '1':
-                    personalBudget.addIncome(idLoggedUser);
+                    cout <<idLoggedUser <<" !!!!!!!!" <<endl;
+                    personalBudget.addIncome();
                     break;
                 case '2':
                     //personalBudget.addExpense();

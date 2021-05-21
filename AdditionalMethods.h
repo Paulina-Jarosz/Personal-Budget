@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
@@ -16,8 +17,9 @@ public:
     static float loadFloat();
     static string loadLine();
     static int  convertStringToInt(string number);
-    static string convertIntNaString(int number);
+    static string convertIntToString(int number);
     static string removeDashFromDate (string date);
+    static string addDashToDate (string date);
 
 };
 

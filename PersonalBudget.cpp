@@ -50,7 +50,13 @@ char PersonalBudget :: chooseOptionFromUserMenu(){
     userMenager.chooseOptionFromUserMenu();
 }
 
-void PersonalBudget :: addIncome(int idLoggedUser) {
+void PersonalBudget :: addIncome() {
 
-    itemMenager->addIncome(idLoggedUser);
+    if (userMenager.ifUserIsLogged()) {
+        itemMenager->addIncome();
+    } else {
+
+        cout << "You need to login " << endl;
+        system ("pause");
+    }
 }

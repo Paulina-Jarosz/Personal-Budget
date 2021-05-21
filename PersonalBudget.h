@@ -31,7 +31,7 @@ public:
     int userLogIn();
     void logOffUser();
     char chooseOptionFromUserMenu();
-    void addIncome(int idLoggedUser);
+    void addIncome();
 
 };
 

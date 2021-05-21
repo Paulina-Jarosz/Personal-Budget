@@ -35,6 +35,9 @@ public:
 
     void showDate(Date dateOb);
 
+    //string getSelectedPeriod();
+    //void sortByDateFromOldest(); // vector?
+
 };
 
 #endif

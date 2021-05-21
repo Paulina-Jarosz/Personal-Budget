@@ -68,7 +68,7 @@ int AdditionalMethods :: convertStringToInt(string number)
     return numberInt;
 }
 
-string AdditionalMethods :: convertIntNaString(int number)
+string AdditionalMethods :: convertIntToString(int number)
 {
     ostringstream ss;
     ss << number;
@@ -93,4 +93,13 @@ string AdditionalMethods :: removeDashFromDate(string date) {
         }
     }
     return stringDatewithoutDash;
+}
+
+string AdditionalMethods :: addDashToDate(string date) {
+
+    string stringDateWithDash;
+    stringDateWithDash = date.insert (4,1,'-');
+    stringDateWithDash = stringDateWithDash.insert (7,1,'-');
+
+    return stringDateWithDash;
 }

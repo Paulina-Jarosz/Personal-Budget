@@ -16,7 +16,6 @@ class FileWithUsers {
 
     string fileNameWithUsers;
 
-
 public:
     FileWithUsers();
     //FileWithUsers(string fileName) : XmlFile(fileName){};
