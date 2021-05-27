@@ -2,7 +2,7 @@
 
 IncomeFile :: IncomeFile(){
     FileNameWithIncomes = "Incomes.xml";
-    //int idLoggedUser = 0;
+    int lastIncomeId = 0;
 }
 
 void IncomeFile :: addIncomeToFile(Item income)
@@ -49,11 +49,8 @@ vector <Item> IncomeFile :: getIncomeFromFile(int idLoggedUser) {
                 item.setupItemId(itemId);
 
                 xml.FindElem( "Date");
-                string iteamStringDate = AdditionalMethods :: convertIntToString (item.getIntDate());
-    string dateItemWithDash = AdditionalMethods :: addDashToDate(iteamStringDate);
-    item.setupStringDate(dateItemWithDash);
-                //string itemDate = xml.GetData();
-                //item.setupStringDate(itemDate);
+                string itemDate = xml.GetData();
+                item.setupStringDate(itemDate);
 
                 xml.FindElem( "Item");
                 string incomeName = xml.GetData();

@@ -28,9 +28,9 @@ Item ItemMenager :: provideIncomeDetails()
 
     int itemId = getNewItemId();
     item.setupItemId(itemId);
-    item.setupUserId(idLoggedUser);
+    item.setupUserId(ID_LOGGED_USER);
 
-    cout << "Do you wnat to add income with current date?" <<endl;
+    cout << "Do you want to add income with current date?" <<endl;
     cout << "If yes, please click 'y', if you want to chose other date, please click 'n': " << endl;
     choice = AdditionalMethods :: getCharacter();
 
@@ -50,6 +50,7 @@ Item ItemMenager :: provideIncomeDetails()
         intDateWithoutDash = AdditionalMethods :: convertStringToInt (stringDatewithoutDash);
         item.setupDate(intDateWithoutDash);
     }
+    else cout << "Incorrect date" << endl;
     cout << "Provide income description: ";
     itemName = AdditionalMethods :: loadLine();
     item.setupItemName(itemName);

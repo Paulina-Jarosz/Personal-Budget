@@ -24,7 +24,6 @@ int main() {
 
                 switch (choose) {
                 case '1':
-                    cout <<idLoggedUser <<" !!!!!!!!" <<endl;
                     personalBudget.addIncome();
                     break;
                 case '2':
