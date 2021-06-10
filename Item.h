@@ -14,7 +14,7 @@ class Item {
     int intDate;
 
 public:
-        Item(int itemId = 0, int userId = 0, string itemDate = "", string itemName = "", float itemAmount = 00.00)
+        Item(int itemId = 0, int userId = 0, string itemDate = "", string itemName = "", float itemAmount = 0.0)
     {
         this->itemId = itemId;
         this->userId = userId;

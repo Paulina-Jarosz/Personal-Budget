@@ -8,6 +8,9 @@ IncomeFile :: IncomeFile(){
 void IncomeFile :: addIncomeToFile(Item income)
 {
     //Item incomeOb = changeIntDateFormat(income);
+    //string iteamStringDate = AdditionalMethods :: convertIntToString (income.getIntDate());
+    //string dateItemWithDash = AdditionalMethods :: addDashToDate(iteamStringDate);
+    //income.setupStringDate(iteamStringDate);
     CMarkup xml;
     bool fileExists = xml.Load(FileNameWithIncomes);
      if (!fileExists)
@@ -23,6 +26,7 @@ void IncomeFile :: addIncomeToFile(Item income)
     xml.AddElem( "Income Id", income.getItemId() );
     xml.AddElem( "User Id", income.getUserId() );
     xml.AddElem( "Date", income.getItemDate() );
+    //xml.AddElem( "Date", income.getIntDate() );
     xml.AddElem( "Item", income.getItemName() );
     xml.AddElem( "Amount", income.getItemAmount() );
 
@@ -40,8 +44,12 @@ vector <Item> IncomeFile :: getIncomeFromFile(int idLoggedUser) {
         xml.IntoElem();
         while ( xml.FindElem("Income") == true) {
             xml.IntoElem();
-            while ( xml.FindElem("User Id") == idLoggedUser ) {
+            //while ( xml.FindElem("User Id") == idLoggedUser ) {
+                //int userId = atoi(xml.GetData().c_str());//atoi( MCD_2PCSZ(xml.GetData()));
+                //while ( xml.FindElem("User Id") == idLoggedUser ) {
+                    xml.FindElem("User Id");
                 int userId = atoi(xml.GetData().c_str());//atoi( MCD_2PCSZ(xml.GetData()));
+                if ( userId == idLoggedUser ){
                 item.setupUserId(userId);
 
                 xml.FindElem( "Income Id");
@@ -61,8 +69,9 @@ vector <Item> IncomeFile :: getIncomeFromFile(int idLoggedUser) {
                 item.setupItemAmount(itemAmount);
                 incomes.push_back(item);
 
-                xml.OutOfElem();
             }
+            else
+            xml.OutOfElem();
         }
 
     }
