@@ -99,7 +99,7 @@ bool DateMenager :: isValidDay (int day, int month, int year) {
 
 bool DateMenager :: isValidFormatDate (string date) {
 
-    if ((!date.size() == 10) || (!date[0] == 1) || (date[4] != '-') || (date[7] != '-'))
+    if ((!date.size() == 10) || (!date[0] == 2) || (date[4] != '-') || (date[7] != '-'))
         return false;
     else
         return true;

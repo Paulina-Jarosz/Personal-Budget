@@ -7,21 +7,23 @@
 #include <cstdlib>
 
 #include "Markup.h"
+#include "XmlFile.h"
 #include "Item.h"
 #include "AdditionalMethods.h"
 
 using namespace std;
 
-class IncomeFile {
+class IncomeFile : public XmlFile {
 
-    string FileNameWithIncomes;
+    string fileNameWithIncomes;
     int lastIncomeId;
     int idLoggedUser;
 
 public:
-    IncomeFile();
-
-    //IncomeFile(string FileNameWithIncomes) : XmlFile(FileNameWithIncomes){};
+    IncomeFile(string fileNameWithIncomes) : XmlFile(fileNameWithIncomes){
+     idLoggedUser = 0;
+     lastIncomeId = 0;
+    };
     void addIncomeToFile(Item income);
     //int getFromFileLastItemId();
     vector <Item> getIncomeFromFile(int idLoggedUser);

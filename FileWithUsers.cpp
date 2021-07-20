@@ -1,13 +1,14 @@
 #include "FileWithUsers.h"
 #include "Markup.h"
 
-FileWithUsers :: FileWithUsers(){
+/*FileWithUsers :: FileWithUsers(){
     fileNameWithUsers = "Users.xml";
-}
+}*/
 
 void FileWithUsers :: addUserToFile(User user)
 {
     CMarkup xml;
+    string fileNameWithUsers = XmlFile :: getFileName();
     bool fileExists = xml.Load(fileNameWithUsers);
      if (!fileExists)
     {
@@ -35,6 +36,7 @@ vector <User> FileWithUsers :: loadUserFromFile()
     vector <User> users;
 
     CMarkup xml;
+    string fileNameWithUsers = XmlFile :: getFileName();
     bool fileExists = xml.Load(fileNameWithUsers);
 
     if (fileExists == true)

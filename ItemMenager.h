@@ -25,8 +25,9 @@ class ItemMenager : public Item {
     int getNewItemId();
 
 public:
-    ItemMenager (int idLoggedUser) : incomeFile(),ID_LOGGED_USER (idLoggedUser){
-    //incomes = incomeFile.getIncomeFromFile(ID_LOGGED_USER);
+    ItemMenager (string fileNameWithIncomes, int idLoggedUser) : incomeFile (fileNameWithIncomes),ID_LOGGED_USER(idLoggedUser){
+    //ItemMenager (int idLoggedUser) : incomeFile(),ID_LOGGED_USER (idLoggedUser){
+    incomes = incomeFile.getIncomeFromFile(ID_LOGGED_USER);
     };
     void addIncome();
     bool provideDate();

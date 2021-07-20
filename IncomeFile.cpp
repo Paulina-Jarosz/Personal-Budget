@@ -1,9 +1,10 @@
 #include "IncomeFile.h"
+#include "Markup.h"
 
-IncomeFile :: IncomeFile(){
+/*IncomeFile :: IncomeFile(){
     FileNameWithIncomes = "Incomes.xml";
     int lastIncomeId = 0;
-}
+}*/
 
 void IncomeFile :: addIncomeToFile(Item income)
 {
@@ -12,7 +13,8 @@ void IncomeFile :: addIncomeToFile(Item income)
     //string dateItemWithDash = AdditionalMethods :: addDashToDate(iteamStringDate);
     //income.setupStringDate(iteamStringDate);
     CMarkup xml;
-    bool fileExists = xml.Load(FileNameWithIncomes);
+    string fileNameWithIncomes = XmlFile :: getFileName();
+    bool fileExists = xml.Load(fileNameWithIncomes);
      if (!fileExists)
     {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
@@ -30,14 +32,15 @@ void IncomeFile :: addIncomeToFile(Item income)
     xml.AddElem( "Item", income.getItemName() );
     xml.AddElem( "Amount", income.getItemAmount() );
 
-    xml.Save(FileNameWithIncomes);
+    xml.Save(fileNameWithIncomes);
 
 }
 vector <Item> IncomeFile :: getIncomeFromFile(int idLoggedUser) {
     Item item;
     vector <Item> incomes;
     CMarkup xml;
-    bool fileExists = xml.Load(FileNameWithIncomes);
+    string fileNameWithIncomes = XmlFile :: getFileName();
+    bool fileExists = xml.Load(fileNameWithIncomes);
 
     if (fileExists == true) {
         xml.FindElem();
@@ -75,6 +78,7 @@ vector <Item> IncomeFile :: getIncomeFromFile(int idLoggedUser) {
         }
 
     }
+    return incomes;
 }
 
 /*int IncomeFile  :: getFromFileLastItemId(){

@@ -6,19 +6,19 @@
 #include <cstring>
 #include <string>
 
-//#include "XmlFile.h"
+#include "XmlFile.h"
 #include "Markup.h"
 #include "User.h"
 
 using namespace std;
 
-class FileWithUsers {
+class FileWithUsers : public XmlFile {
 
     string fileNameWithUsers;
 
 public:
-    FileWithUsers();
-    //FileWithUsers(string fileName) : XmlFile(fileName){};
+    //FileWithUsers(string fileNameWithUsers){};
+    FileWithUsers(string fileNameWithUsers) : XmlFile(fileNameWithUsers){};
     void addUserToFile(User user);
     bool checkLogin(string login);
     vector <User> loadUserFromFile();

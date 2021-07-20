@@ -13,10 +13,13 @@ class PersonalBudget {
 
     UserMenager userMenager;
     ItemMenager *itemMenager;
+    //const FILE_NAME_WITH_USERS;
+    const string FILE_NAME_WITH_INCOMES;
+    const string FILE_NAME_WITH_EXPENSES;
 
 public:
-    PersonalBudget()
-    : userMenager() {
+    PersonalBudget(string fileNameWithUsers, string FileNameWithIncomes, string FileNameWithExpenses)
+    : userMenager(fileNameWithUsers), FILE_NAME_WITH_INCOMES(FileNameWithIncomes), FILE_NAME_WITH_EXPENSES (FileNameWithExpenses) {
         itemMenager = NULL;
     }
     ~PersonalBudget() {
