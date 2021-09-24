@@ -17,7 +17,6 @@ class FileWithUsers : public XmlFile {
     string fileNameWithUsers;
 
 public:
-    //FileWithUsers(string fileNameWithUsers){};
     FileWithUsers(string fileNameWithUsers) : XmlFile(fileNameWithUsers){};
     void addUserToFile(User user);
     bool checkLogin(string login);

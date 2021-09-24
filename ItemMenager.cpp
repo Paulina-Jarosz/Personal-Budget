@@ -22,7 +22,7 @@ Item ItemMenager :: provideIncomeDetails()
 {
     Item item;
     DateMenager dateMenager;
-    string itemName, userSurname, otherDate, stringDatewithoutDash, currentStringDate;
+    string itemName, userSurname, otherDate, stringDatewithoutDash, currentStringDate, stringAmount;
     int currentDate, intDateWithoutDash;
     float amount;
     char choice;

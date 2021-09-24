@@ -16,18 +16,20 @@ using namespace std;
 class IncomeFile : public XmlFile {
 
     string fileNameWithIncomes;
-    int lastIncomeId;
+    int lastItemId;
     int idLoggedUser;
+    vector <Item> incomes;
 
 public:
     IncomeFile(string fileNameWithIncomes) : XmlFile(fileNameWithIncomes){
      idLoggedUser = 0;
-     lastIncomeId = 0;
+     //lastItemId = 0;
     };
     void addIncomeToFile(Item income);
-    //int getFromFileLastItemId();
+    int getFromFileLastItemId();
     vector <Item> getIncomeFromFile(int idLoggedUser);
     Item changeIntDateFormat(Item income);
+    int getLastItemId();
 };
 
 #endif

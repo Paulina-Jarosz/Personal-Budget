@@ -1,17 +1,13 @@
 #include "IncomeFile.h"
 #include "Markup.h"
 
-/*IncomeFile :: IncomeFile(){
-    FileNameWithIncomes = "Incomes.xml";
-    int lastIncomeId = 0;
-}*/
-
 void IncomeFile :: addIncomeToFile(Item income)
 {
     //Item incomeOb = changeIntDateFormat(income);
     //string iteamStringDate = AdditionalMethods :: convertIntToString (income.getIntDate());
     //string dateItemWithDash = AdditionalMethods :: addDashToDate(iteamStringDate);
     //income.setupStringDate(iteamStringDate);
+    string amount = AdditionalMethods :: convertFloatToString (income.getItemAmount());
     CMarkup xml;
     string fileNameWithIncomes = XmlFile :: getFileName();
     bool fileExists = xml.Load(fileNameWithIncomes);
@@ -25,12 +21,12 @@ void IncomeFile :: addIncomeToFile(Item income)
     xml.IntoElem();
     xml.AddElem("Income");
     xml.IntoElem();
-    xml.AddElem( "Income Id", income.getItemId() );
+    xml.AddElem( "Income Id", getLastItemId() );
     xml.AddElem( "User Id", income.getUserId() );
     xml.AddElem( "Date", income.getItemDate() );
     //xml.AddElem( "Date", income.getIntDate() );
     xml.AddElem( "Item", income.getItemName() );
-    xml.AddElem( "Amount", income.getItemAmount() );
+    xml.AddElem( "Amount", amount );
 
     xml.Save(fileNameWithIncomes);
 
@@ -81,11 +77,30 @@ vector <Item> IncomeFile :: getIncomeFromFile(int idLoggedUser) {
     return incomes;
 }
 
-/*int IncomeFile  :: getFromFileLastItemId(){
-    int lastIncomeId;
+int IncomeFile  :: getLastItemId(){
+    int lastItemId = 0;
 
-return lastIncomeId;
-}*/
+    system("cls");
+    if (!incomes.empty())
+    {
+        for (vector <Item>::iterator itr = incomes.begin(); itr != incomes.end(); itr++)
+        {
+            if (itr -> getItemId() = lastItemId)
+            {
+                 cout <<"id to : " <<endl; //return lastItemId;
+            }
+        }
+    }
+    else
+    {
+        cout << endl << "There is no item" << endl << endl;
+    }
+    cout << endl;
+    system("pause");
+
+
+return lastItemId;
+}
 
 Item IncomeFile :: changeIntDateFormat(Item income){
 

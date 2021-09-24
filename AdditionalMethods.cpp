@@ -104,3 +104,15 @@ string AdditionalMethods :: addDashToDate(string date) {
 
     return stringDateWithDash;
 }
+
+string AdditionalMethods :: convertFloatToString( float amount )
+{
+    std::stringstream FloatToStr;
+    std::string str;
+
+    FloatToStr << amount;
+    FloatToStr >> str;
+    FloatToStr.clear();
+
+    return str;
+}

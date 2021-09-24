@@ -20,6 +20,8 @@ public:
     static string convertIntToString(int number);
     static string removeDashFromDate (string date);
     static string addDashToDate (string date);
+    static string convertFloatToString (float amount);
+    static string changeCommaToDot(string amount);
 
 };
 
