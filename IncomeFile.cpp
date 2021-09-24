@@ -21,7 +21,7 @@ void IncomeFile :: addIncomeToFile(Item income)
     xml.IntoElem();
     xml.AddElem("Income");
     xml.IntoElem();
-    xml.AddElem( "Income Id", getLastItemId() );
+    xml.AddElem( "Income Id", income.getItemId() );
     xml.AddElem( "User Id", income.getUserId() );
     xml.AddElem( "Date", income.getItemDate() );
     //xml.AddElem( "Date", income.getIntDate() );
@@ -46,7 +46,7 @@ vector <Item> IncomeFile :: getIncomeFromFile(int idLoggedUser) {
             //while ( xml.FindElem("User Id") == idLoggedUser ) {
                 //int userId = atoi(xml.GetData().c_str());//atoi( MCD_2PCSZ(xml.GetData()));
                 //while ( xml.FindElem("User Id") == idLoggedUser ) {
-                    xml.FindElem("User Id");
+                xml.FindElem("User Id");
                 int userId = atoi(xml.GetData().c_str());//atoi( MCD_2PCSZ(xml.GetData()));
                 if ( userId == idLoggedUser ){
                 item.setupUserId(userId);
@@ -77,7 +77,7 @@ vector <Item> IncomeFile :: getIncomeFromFile(int idLoggedUser) {
     return incomes;
 }
 
-int IncomeFile  :: getLastItemId(){
+/*int IncomeFile  :: getLastItemId(){
     int lastItemId = 0;
 
     system("cls");
@@ -85,9 +85,9 @@ int IncomeFile  :: getLastItemId(){
     {
         for (vector <Item>::iterator itr = incomes.begin(); itr != incomes.end(); itr++)
         {
-            if (itr -> getItemId() = lastItemId)
+            if (itr -> getItemId() == lastItemId)
             {
-                 cout <<"id to : " <<endl; //return lastItemId;
+                 cout <<"id to : " <<lastItemId << endl; //return lastItemId;
             }
         }
     }
@@ -100,7 +100,7 @@ int IncomeFile  :: getLastItemId(){
 
 
 return lastItemId;
-}
+}*/
 
 Item IncomeFile :: changeIntDateFormat(Item income){
 
