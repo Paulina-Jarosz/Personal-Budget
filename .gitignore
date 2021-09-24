@@ -3,4 +3,5 @@ obj/
 plan/
 PersBudget.*
 Users.xml
-
+Incomes.xml
+Expenses.xml
