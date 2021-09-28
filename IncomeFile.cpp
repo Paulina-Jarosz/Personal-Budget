@@ -72,7 +72,6 @@ vector <Item> IncomeFile :: getIncomeFromFile(int idLoggedUser) {
             else
             xml.OutOfElem();
         }
-
     }
     return incomes;
 }

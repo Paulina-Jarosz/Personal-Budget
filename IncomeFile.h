@@ -16,7 +16,7 @@ using namespace std;
 class IncomeFile : public XmlFile {
 
     string fileNameWithIncomes;
-    //int lastItemId;
+    int lastItemId;
     int idLoggedUser;
     vector <Item> incomes;
 
