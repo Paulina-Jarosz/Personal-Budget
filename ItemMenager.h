@@ -3,31 +3,36 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 
 #include "Item.h"
 #include "User.h"
 #include "UserMenager.h"
 #include "DateMenager.h"
+#include "IncomeFile.h"
 
 using namespace std;
 
 class ItemMenager : public Item {
 
-    int incomeId;
-    vector <Item> items;
-    vector <Item> expenses;
+    const int ID_LOGGED_USER;
+    //vector <Item> items;
+    //vector <Item> expenses;
     vector <Item> incomes;
-    //IncomeFile incomeFile;
+    IncomeFile incomeFile;
+    //int idLoggedUser;
 
     Item provideIncomeDetails();
     int getNewItemId();
 
 public:
-    ItemMenager (int idLoggedUser){
-    //items = incomeFile.getIncomeFromFile();
+    ItemMenager (string fileNameWithIncomes, int idLoggedUser) : incomeFile (fileNameWithIncomes),ID_LOGGED_USER(idLoggedUser){
+    //ItemMenager (int idLoggedUser) : incomeFile(),ID_LOGGED_USER (idLoggedUser){
+    incomes = incomeFile.getIncomeFromFile(ID_LOGGED_USER);
     };
-    void addIncome(int idLoggedUser);
+    void addIncome();
     bool provideDate();
+    void showAllIncomes();
 
 };
 #endif

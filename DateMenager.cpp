@@ -75,6 +75,7 @@ bool DateMenager :: isValidMonth(int month) {
     }
     return true;
 }
+
 bool DateMenager :: isValidDay (int day, int month, int year) {
 
     if (month == 2) {
@@ -85,16 +86,20 @@ bool DateMenager :: isValidDay (int day, int month, int year) {
         } else if (day < 1 && day >= 30) {
             return false;
         }
-    }
-    else if (month == 4 || month == 6 || month == 9 || month == 11) {
+    } else if (month == 4 || month == 6 || month == 9 || month == 11) {
         if (day >= 1 && day <= 30) {
+            return true;
+        } else return false;
+    } else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+        if (day >= 1 && day <= 31) {
             return true;
         } else return false;
     }
 }
+
 bool DateMenager :: isValidFormatDate (string date) {
 
-    if ((!date.size() == 10) || (!date[0] == 1) || (date[4] != '-') || (date[7] != '-'))
+    if ((!date.size() == 10) || (!date[0] == 2) || (date[4] != '-') || (date[7] != '-'))
         return false;
     else
         return true;

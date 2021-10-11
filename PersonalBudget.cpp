@@ -36,7 +36,7 @@ int PersonalBudget :: userLogIn() {
     userMenager.userLogIn();
     if (userMenager.ifUserIsLogged())
     {
-        itemMenager = new ItemMenager (userMenager.getIdLoggedUser());
+        itemMenager = new ItemMenager (FILE_NAME_WITH_INCOMES, userMenager.getIdLoggedUser());
     }
 }
 
@@ -50,7 +50,13 @@ char PersonalBudget :: chooseOptionFromUserMenu(){
     userMenager.chooseOptionFromUserMenu();
 }
 
-void PersonalBudget :: addIncome(int idLoggedUser) {
+void PersonalBudget :: addIncome() {
 
-    itemMenager->addIncome(idLoggedUser);
+    if (userMenager.ifUserIsLogged()) {
+        itemMenager->addIncome();
+    } else {
+
+        cout << "You need to login " << endl;
+        system ("pause");
+    }
 }

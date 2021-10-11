@@ -26,7 +26,7 @@ public:
     void setupUserId (int newUserId);
     void setupLogin (string newLogin);
     void setupPassword (string newPassword);
-    void setupUserName (string newUserNAme);
+    void setupUserName (string newUserName);
     void setupUserSurname (string newUserSurname);
 
     int getUserId();

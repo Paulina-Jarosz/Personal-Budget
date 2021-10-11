@@ -24,7 +24,7 @@ class UserMenager{
     bool isLoginExist(string login);
 
 public:
-    UserMenager (){
+    UserMenager (string fileNameWithUsers) : fileWithUsers(fileNameWithUsers) {
     idLoggedUser = 0;
     users = fileWithUsers.loadUserFromFile();
     };

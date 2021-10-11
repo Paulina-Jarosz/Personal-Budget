@@ -1,63 +1,74 @@
 #include "ItemMenager.h"
 
-void ItemMenager :: addIncome(int idLoggedUser)
+void ItemMenager :: addIncome()
 {
     Item income = provideIncomeDetails();
-    //FileWithUsers fileWithUsers;
     incomes.push_back(income);
-    //fileWithUsers.addItemToFile(income);
-    cout << endl << "Icome added to the file" << endl << endl;
+    incomeFile.addIncomeToFile(income);
+    cout << endl << "Income added to the file" << endl << endl;
+    showAllIncomes();
     system("pause");
 }
 
 int ItemMenager :: getNewItemId()
 {
-    if (items.empty() == true)
+    if (incomes.empty() == true)
         return 1;
     else
-        return items.back().getItemId() + 1;
+        return incomes.back().getItemId() + 1;
 }
 
 Item ItemMenager :: provideIncomeDetails()
 {
     Item item;
     DateMenager dateMenager;
-    string itemName, userSurname, otherDate, stringDatewithoutDash;
+    string itemName, userSurname, otherDate, stringDatewithoutDash, currentStringDate, stringAmount;
     int currentDate, intDateWithoutDash;
     float amount;
     char choice;
 
-    cout << "Do you wnat to add income with current date?" <<endl;
+    int itemId = getNewItemId();
+    item.setupItemId(itemId);
+    item.setupUserId(ID_LOGGED_USER);
+
+    cout << "Do you want to add income with current date?" <<endl;
     cout << "If yes, please click 'y', if you want to chose other date, please click 'n': " << endl;
     choice = AdditionalMethods :: getCharacter();
 
-    if (choice == 'y')
-    {
-       currentDate = dateMenager.getCurrentDate();
-       //cout << "Current date: " << currentDate << endl;
-       item.setupDate(currentDate);
+    if (choice == 'y') {
+        currentDate = dateMenager.getCurrentDate();
+        currentStringDate = AdditionalMethods :: convertIntToString(currentDate);
+        currentStringDate = AdditionalMethods :: addDashToDate (currentStringDate);
+        item.setupStringDate(currentStringDate);
     }
-
     else if (choice == 'n') {
-        cout << "Provide date in format YYYY-MM-DD: ";
+
         do {
+            cout << "Provide date in format YYYY-MM-DD: ";
+            //cout << "Incorrect date or format! Please enter again" << endl;
             otherDate = AdditionalMethods :: loadLine();
         } while (dateMenager.isDateCorrect(otherDate) == false);
         stringDatewithoutDash = AdditionalMethods :: removeDashFromDate(otherDate);
         intDateWithoutDash = AdditionalMethods :: convertStringToInt (stringDatewithoutDash);
-        item.setupDate(intDateWithoutDash);
-
-        cout << "Provide income description: ";
-        itemName = AdditionalMethods :: loadLine();
-        item.setupItemName(itemName);
-        cout << "Provide amount: ";
-        amount = AdditionalMethods :: loadFloat();
-        item.setupItemAmount(amount);
-
-        return item;
-    } else {
-        cout << "This was incorect character" << endl;
+        item.setupStringDate(otherDate);
     }
+    cout << "Provide income description: ";
+    itemName = AdditionalMethods :: loadLine();
+    item.setupItemName(itemName);
+    cout << "Provide amount: ";
+    amount = AdditionalMethods :: loadFloat();
+    item.setupItemAmount(amount);
 
+    return item;
 }
 
+void ItemMenager :: showAllIncomes() {
+
+    for (int i = 0; i < incomes.size(); i++) {
+        cout << "Item Id: " << incomes[i].getItemId() << endl;
+        cout << "User Id: " << incomes[i].getUserId() << endl;
+        cout << "Item date: " << incomes[i].getItemDate() << endl;
+        cout << "Item name: " << incomes[i].getItemName() << endl;
+        cout << "Item amount: " << incomes[i].getItemAmount() << endl << endl;
+    }
+}
