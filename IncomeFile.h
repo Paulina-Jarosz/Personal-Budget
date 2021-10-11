@@ -22,7 +22,7 @@ class IncomeFile : public XmlFile {
 
 public:
     IncomeFile(string fileNameWithIncomes) : XmlFile(fileNameWithIncomes){
-     idLoggedUser = 0;
+     //idLoggedUser = 0;
      //lastItemId = 0;
     };
     void addIncomeToFile(Item income);

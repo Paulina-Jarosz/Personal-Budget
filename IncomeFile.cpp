@@ -21,8 +21,8 @@ void IncomeFile :: addIncomeToFile(Item income)
     xml.IntoElem();
     xml.AddElem("Income");
     xml.IntoElem();
-    xml.AddElem( "Income Id", income.getItemId() );
-    xml.AddElem( "User Id", income.getUserId() );
+    xml.AddElem( "IncomeId", income.getItemId() );
+    xml.AddElem( "UserId", income.getUserId() );
     xml.AddElem( "Date", income.getItemDate() );
     //xml.AddElem( "Date", income.getIntDate() );
     xml.AddElem( "Item", income.getItemName() );
@@ -44,16 +44,20 @@ vector <Item> IncomeFile :: getIncomeFromFile(int idLoggedUser) {
         while ( xml.FindElem("Income") == true) {
             xml.IntoElem();
             //while ( xml.FindElem("User Id") == idLoggedUser ) {
-                //int userId = atoi(xml.GetData().c_str());//atoi( MCD_2PCSZ(xml.GetData()));
-                //while ( xml.FindElem("User Id") == idLoggedUser ) {
-                xml.FindElem("User Id");
-                int userId = atoi(xml.GetData().c_str());//atoi( MCD_2PCSZ(xml.GetData()));
-                if ( userId == idLoggedUser ){
-                item.setupUserId(userId);
+            //int userId = atoi(xml.GetData().c_str());//atoi( MCD_2PCSZ(xml.GetData()));
+            //while ( xml.FindElem("User Id") == idLoggedUser ) {
+            /*xml.FindElem("UserId");
+            int userId = atoi(xml.GetData().c_str());//atoi( MCD_2PCSZ(xml.GetData()));
+            if ( userId == idLoggedUser ) {
+                item.setupUserId(userId);*/
 
-                xml.FindElem( "Income Id");
+                xml.FindElem( "IncomeId");
                 int itemId = atoi(xml.GetData().c_str());
                 item.setupItemId(itemId);
+                xml.FindElem("UserId");
+            int userId = atoi(xml.GetData().c_str());//atoi( MCD_2PCSZ(xml.GetData()));
+            //if ( userId == idLoggedUser ) {
+                item.setupUserId(userId);
 
                 xml.FindElem( "Date");
                 string itemDate = xml.GetData();
@@ -68,38 +72,12 @@ vector <Item> IncomeFile :: getIncomeFromFile(int idLoggedUser) {
                 item.setupItemAmount(itemAmount);
                 incomes.push_back(item);
 
-            }
-            else
-            xml.OutOfElem();
+                xml.OutOfElem();
+            //}
         }
     }
     return incomes;
 }
-
-/*int IncomeFile  :: getLastItemId(){
-    int lastItemId = 0;
-
-    system("cls");
-    if (!incomes.empty())
-    {
-        for (vector <Item>::iterator itr = incomes.begin(); itr != incomes.end(); itr++)
-        {
-            if (itr -> getItemId() == lastItemId)
-            {
-                 cout <<"id to : " <<lastItemId << endl; //return lastItemId;
-            }
-        }
-    }
-    else
-    {
-        cout << endl << "There is no item" << endl << endl;
-    }
-    cout << endl;
-    system("pause");
-
-
-return lastItemId;
-}*/
 
 Item IncomeFile :: changeIntDateFormat(Item income){
 

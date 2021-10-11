@@ -14,7 +14,7 @@ void Item :: setupItemId (int newItemId) {
 }
 
 void Item :: setupUserId (int newUserID) {
-    if (newUserID >= 0)
+    if (newUserID > 0)
         userId = newUserID;
 }
 
