@@ -35,6 +35,7 @@ public:
     void logOffUser();
     char chooseOptionFromUserMenu();
     void addIncome();
+    void addExpense();
 
 };
 
