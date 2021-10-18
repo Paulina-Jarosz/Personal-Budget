@@ -60,3 +60,14 @@ void PersonalBudget :: addIncome() {
         system ("pause");
     }
 }
+
+void PersonalBudget :: addExpense() {
+
+    if (userMenager.ifUserIsLogged()) {
+        itemMenager->addExpense();
+    } else {
+
+        cout << "You need to login " << endl;
+        system ("pause");
+    }
+}

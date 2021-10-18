@@ -17,22 +17,27 @@ class ItemMenager : public Item {
 
     const int ID_LOGGED_USER;
     //vector <Item> items;
-    //vector <Item> expenses;
+    vector <Item> expenses;
     vector <Item> incomes;
     IncomeFile incomeFile;
     //int idLoggedUser;
 
     Item provideIncomeDetails();
-    int getNewItemId();
+    Item provideExpenseDetails();
+    int getNewIncomeId();
+    int getNewExpenseId();
 
 public:
     ItemMenager (string fileNameWithIncomes, int idLoggedUser) : incomeFile (fileNameWithIncomes),ID_LOGGED_USER(idLoggedUser){
     //ItemMenager (int idLoggedUser) : incomeFile(),ID_LOGGED_USER (idLoggedUser){
     incomes = incomeFile.getIncomeFromFile(ID_LOGGED_USER);
+    //expenses = expenseFile.getExpenseFromFile(ID_LOGGED_USER);
     };
     void addIncome();
+    void addExpense();
     bool provideDate();
     void showAllIncomes();
+    void showAllExpenses();
 
 };
 #endif
