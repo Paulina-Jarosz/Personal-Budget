@@ -36,7 +36,7 @@ int PersonalBudget :: userLogIn() {
     userMenager.userLogIn();
     if (userMenager.ifUserIsLogged())
     {
-        itemMenager = new ItemMenager (FILE_NAME_WITH_INCOMES, userMenager.getIdLoggedUser());
+        itemMenager = new ItemMenager (FILE_NAME_WITH_INCOMES, FILE_NAME_WITH_EXPENSES, userMenager.getIdLoggedUser());
     }
 }
 
