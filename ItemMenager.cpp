@@ -14,7 +14,7 @@ void ItemMenager :: addExpense()
 {
     Item expense = provideExpenseDetails();
     expenses.push_back(expense);
-    //expenseFile.addExpenseToFile(expense);
+    expenseFile.addExpenseToFile(expense);
     cout << endl << "Expense added to the file" << endl << endl;
     showAllExpenses();
     system("pause");

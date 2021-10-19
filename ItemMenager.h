@@ -10,6 +10,7 @@
 #include "UserMenager.h"
 #include "DateMenager.h"
 #include "IncomeFile.h"
+#include "ExpenseFile.h"
 
 using namespace std;
 
@@ -20,6 +21,7 @@ class ItemMenager : public Item {
     vector <Item> expenses;
     vector <Item> incomes;
     IncomeFile incomeFile;
+    ExpenseFile expenseFile;
     //int idLoggedUser;
 
     Item provideIncomeDetails();
@@ -28,11 +30,16 @@ class ItemMenager : public Item {
     int getNewExpenseId();
 
 public:
-    ItemMenager (string fileNameWithIncomes, int idLoggedUser) : incomeFile (fileNameWithIncomes),ID_LOGGED_USER(idLoggedUser){
+    ItemMenager (string fileNameWithIncomes, string fileNameWithExpenses, int idLoggedUser) : incomeFile (fileNameWithIncomes),expenseFile (fileNameWithExpenses),ID_LOGGED_USER(idLoggedUser){
     //ItemMenager (int idLoggedUser) : incomeFile(),ID_LOGGED_USER (idLoggedUser){
     incomes = incomeFile.getIncomeFromFile(ID_LOGGED_USER);
-    //expenses = expenseFile.getExpenseFromFile(ID_LOGGED_USER);
+    expenses = expenseFile.getExpenseFromFile(ID_LOGGED_USER);
     };
+
+    /*ItemMenager (string fileNameWithExpenses, int idLoggedUser) : expenseFile (fileNameWithExpenses),ID_LOGGED_USER(idLoggedUser){
+    expenses = expenseFile.getExpenseFromFile(ID_LOGGED_USER);
+    };*/
+
     void addIncome();
     void addExpense();
     bool provideDate();
