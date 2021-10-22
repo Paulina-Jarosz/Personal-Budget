@@ -15,7 +15,6 @@ char AdditionalMethods :: getCharacter()
             character = providedCharacter[0];
             break;
         }
-        cout << "This is not one character. Please enter one more time." << endl;
     }
     return character;
 }

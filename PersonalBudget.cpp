@@ -71,3 +71,14 @@ void PersonalBudget :: addExpense() {
         system ("pause");
     }
 }
+
+void PersonalBudget :: displayBalanceForCurrentMonth(){
+
+    if (userMenager.ifUserIsLogged()) {
+        itemMenager->displayBalanceForCurrentMonth();
+    } else {
+
+        cout << "You need to login " << endl;
+        system ("pause");
+    }
+}

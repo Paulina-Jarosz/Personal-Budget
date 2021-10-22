@@ -36,6 +36,7 @@ public:
     char chooseOptionFromUserMenu();
     void addIncome();
     void addExpense();
+    void displayBalanceForCurrentMonth();
 
 };
 

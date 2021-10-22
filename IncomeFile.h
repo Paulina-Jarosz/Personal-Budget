@@ -29,6 +29,7 @@ public:
     vector <Item> getIncomeFromFile(int idLoggedUser);
     Item changeIntDateFormat(Item income);
     //int getLastItemId();
+    vector <Item> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idLoggedUser);
 };
 
 #endif

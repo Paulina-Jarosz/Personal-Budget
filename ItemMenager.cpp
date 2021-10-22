@@ -6,7 +6,7 @@ void ItemMenager :: addIncome()
     incomes.push_back(income);
     incomeFile.addIncomeToFile(income);
     cout << endl << "Income added to the file" << endl << endl;
-    showAllIncomes();
+    showAllIncomes(income); //usunac jak kod bedzie ok
     system("pause");
 }
 
@@ -16,7 +16,7 @@ void ItemMenager :: addExpense()
     expenses.push_back(expense);
     expenseFile.addExpenseToFile(expense);
     cout << endl << "Expense added to the file" << endl << endl;
-    showAllExpenses();
+    //showAllExpenses(); // usunac jak kod bedzie ok
     system("pause");
 }
 
@@ -125,15 +125,15 @@ Item ItemMenager :: provideExpenseDetails()
 }
 
 
-void ItemMenager :: showAllIncomes() {
+void ItemMenager :: showAllIncomes(Item income) {
 
-    for (int i = 0; i < incomes.size(); i++) {
-        cout << "Item Id: " << incomes[i].getItemId() << endl;
-        cout << "User Id: " << incomes[i].getUserId() << endl;
-        cout << "Item date: " << incomes[i].getItemDate() << endl;
-        cout << "Item name: " << incomes[i].getItemName() << endl;
-        cout << "Item amount: " << incomes[i].getItemAmount() << endl << endl;
-    }
+    //for (int i = 0; i < incomes.size(); i++) {
+        cout << "Item Id: " << income.getItemId() << endl;
+        cout << "User Id: " << income.getUserId() << endl;
+        cout << "Item date: " << income.getItemDate() << endl;
+        cout << "Item name: " << income.getItemName() << endl;
+        cout << "Item amount: " << income.getItemAmount() << endl << endl;
+    //}
 }
 
 void ItemMenager :: showAllExpenses() {
@@ -145,4 +145,25 @@ void ItemMenager :: showAllExpenses() {
         cout << "Item name: " << expenses[i].getItemName() << endl;
         cout << "Item amount: " << expenses[i].getItemAmount() << endl << endl;
     }
+}
+
+void ItemMenager :: displayBalanceForCurrentMonth(){
+
+    vector <Item> loggedUserIncome;
+
+    system("cls");
+    if (!incomes.empty()) {
+        cout << "             >>> Incomes: <<<" << endl;
+        cout << "-----------------------------------------------" << endl;
+        for (vector <Item> :: iterator itr = incomes.begin(); itr != incomes.end(); itr++) {
+            if (itr -> getUserId() == ID_LOGGED_USER) {
+                showAllIncomes(*itr);
+
+            }
+            cout << endl;
+        }
+    } else {
+        cout << endl << "There is no incomes" << endl << endl;
+    }
+    system("pause");
 }

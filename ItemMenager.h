@@ -22,7 +22,7 @@ class ItemMenager : public Item {
     vector <Item> incomes;
     IncomeFile incomeFile;
     ExpenseFile expenseFile;
-    //int idLoggedUser;
+    int idLoggedUser;
 
     Item provideIncomeDetails();
     Item provideExpenseDetails();
@@ -36,15 +36,12 @@ public:
     expenses = expenseFile.getExpenseFromFile(ID_LOGGED_USER);
     };
 
-    /*ItemMenager (string fileNameWithExpenses, int idLoggedUser) : expenseFile (fileNameWithExpenses),ID_LOGGED_USER(idLoggedUser){
-    expenses = expenseFile.getExpenseFromFile(ID_LOGGED_USER);
-    };*/
-
     void addIncome();
     void addExpense();
     bool provideDate();
-    void showAllIncomes();
-    void showAllExpenses();
+    void showAllIncomes(Item income);// usunac jak kod bedzie skonczony
+    void showAllExpenses(); //usunac jak kod bedzie skonczony
+    void displayBalanceForCurrentMonth();
 
 };
 #endif

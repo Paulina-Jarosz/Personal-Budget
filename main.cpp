@@ -33,7 +33,7 @@ int main() {
                 personalBudget.addExpense();
                 break;
             case '3':
-                //personalBudget.displayBalanceForCurrentMonth();
+                personalBudget.displayBalanceForCurrentMonth();
                 break;
             case '4':
                 //personalBudget.displayBalanceForPreviousMonth();
