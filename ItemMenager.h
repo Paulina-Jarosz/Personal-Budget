@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 #include "Item.h"
 #include "User.h"
@@ -15,6 +16,11 @@
 using namespace std;
 
 class ItemMenager : public Item {
+
+    struct intDate {
+        int intDateToSort;
+    };
+
 
     const int ID_LOGGED_USER;
     //vector <Item> items;
@@ -42,6 +48,15 @@ public:
     void showAllIncomes(Item income);// usunac jak kod bedzie skonczony
     void showAllExpenses(); //usunac jak kod bedzie skonczony
     void displayBalanceForCurrentMonth();
+    void quicksort(vector<Item> incomes, int first, int second);
+    void showAllIncomesInOrder(vector<Item> incomes);
+    //void sortowanie(vector<Item>incomes);
 
+    /*struct sortByDate
+    {
+        inline bool operator() (intDate& firstDate, intDate& secondDate) {
+            return (firstDate.getIntDate() < secondDate.getIntDate());
+        }
+    };*/
 };
 #endif

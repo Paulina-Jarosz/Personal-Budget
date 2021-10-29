@@ -16,7 +16,7 @@ void ItemMenager :: addExpense()
     expenses.push_back(expense);
     expenseFile.addExpenseToFile(expense);
     cout << endl << "Expense added to the file" << endl << endl;
-    //showAllExpenses(); // usunac jak kod bedzie ok
+    //showAllExpenses(expense); // usunac jak kod bedzie ok
     system("pause");
 }
 
@@ -149,8 +149,6 @@ void ItemMenager :: showAllExpenses() {
 
 void ItemMenager :: displayBalanceForCurrentMonth(){
 
-    vector <Item> loggedUserIncome;
-
     system("cls");
     if (!incomes.empty()) {
         cout << "             >>> Incomes: <<<" << endl;
@@ -158,12 +156,65 @@ void ItemMenager :: displayBalanceForCurrentMonth(){
         for (vector <Item> :: iterator itr = incomes.begin(); itr != incomes.end(); itr++) {
             if (itr -> getUserId() == ID_LOGGED_USER) {
                 showAllIncomes(*itr);
-
             }
             cout << endl;
         }
-    } else {
+    }
+    else {
         cout << endl << "There is no incomes" << endl << endl;
     }
     system("pause");
+    quicksort(incomes,  0, incomes.size()-1);
+    //sortowanie(incomes);
+
 }
+
+void ItemMenager :: showAllIncomesInOrder (vector<Item>incomes) {
+
+    cout <<"AFTER SORTING BY DATE: " <<endl << endl;
+
+    for (int i = 0; i < incomes.size(); i++) {
+        cout << "Item Id: " << incomes[i].getItemId() << endl;
+        cout << "User Id: " << incomes[i].getUserId() << endl;
+        cout << "Item date: " << incomes[i].getItemDate() << endl;
+        cout << "Item name: " << incomes[i].getItemName() << endl;
+        cout << "Item amount: " << incomes[i].getItemAmount() << endl << endl;
+    }
+    system("pause");
+}
+
+void ItemMenager :: quicksort(vector<Item>incomes, int left, int right)
+{
+    Item v = incomes[(left + right)/2];
+    Item x;
+    int i,j;
+    i=left;
+    j=right;
+    do
+    {
+        while (incomes[i].getIntDate() < v.getIntDate()) i++;
+        while (incomes[j].getIntDate() > v.getIntDate()) j--;
+        if (i<=j)
+        {
+            x=incomes[i];
+            incomes[i]=incomes[j];
+            incomes[j]=x;
+            i++;
+            j--;
+        }
+    }
+    while (i<=j);
+
+    if (j>left) quicksort(incomes,left, j);
+    if (i<right) quicksort(incomes, i, right);
+
+    showAllIncomesInOrder (incomes);
+       // return incomes;
+}
+
+
+/*void ItemMenager :: sortowanie(vector<Item>incomes){
+
+    sort(incomes.begin(), incomes.end(), sortByDate());
+    showAllIncomesInOrder (incomes);
+}*/
