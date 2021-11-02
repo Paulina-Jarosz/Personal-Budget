@@ -84,14 +84,15 @@ string AdditionalMethods :: loadLine()
 
 string AdditionalMethods :: removeDashFromDate(string date) {
 
-    string stringDatewithoutDash;
+    string stringDateWithoutDash;
 
     for (int i = 0 ; i <= date.length(); i++) {
         if (date[i] != '-') {
-            stringDatewithoutDash += date[i];
+            stringDateWithoutDash += date[i];
         }
     }
-    return stringDatewithoutDash;
+
+    return stringDateWithoutDash;
 }
 
 string AdditionalMethods :: addDashToDate(string date) {
@@ -103,6 +104,16 @@ string AdditionalMethods :: addDashToDate(string date) {
 
     return stringDateWithDash;
 }
+
+/*string AdditionalMethods :: removeDashFromDate(string date) {
+
+    string stringDateWithoutDash;
+    stringDateWithoutDash = date.erase (4,1);
+    stringDateWithoutDash = stringDateWithoutDash.erase (7,1);
+    cout << stringDateWithoutDash << endl;
+
+    return stringDateWithoutDash;
+}*/
 
 string AdditionalMethods :: convertFloatToString( float amount )
 {

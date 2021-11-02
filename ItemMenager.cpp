@@ -130,7 +130,8 @@ void ItemMenager :: showAllIncomes(Item income) {
     //for (int i = 0; i < incomes.size(); i++) {
         cout << "Item Id: " << income.getItemId() << endl;
         cout << "User Id: " << income.getUserId() << endl;
-        cout << "Item date: " << income.getItemDate() << endl;
+        //cout << "Item date: " << income.getItemDate() << endl;
+        cout << "Item date: " << income.getIntDate() << endl;
         cout << "Item name: " << income.getItemName() << endl;
         cout << "Item amount: " << income.getItemAmount() << endl << endl;
     //}
@@ -164,7 +165,8 @@ void ItemMenager :: displayBalanceForCurrentMonth(){
         cout << endl << "There is no incomes" << endl << endl;
     }
     system("pause");
-    quicksort(incomes,  0, incomes.size()-1);
+    showAllIncomesInOrder (incomes);
+    //quicksort(incomes,  0, incomes.size()-1);
     //sortowanie(incomes);
 
 }
@@ -172,7 +174,6 @@ void ItemMenager :: displayBalanceForCurrentMonth(){
 void ItemMenager :: showAllIncomesInOrder (vector<Item>incomes) {
 
     cout <<"AFTER SORTING BY DATE: " <<endl << endl;
-
     for (int i = 0; i < incomes.size(); i++) {
         cout << "Item Id: " << incomes[i].getItemId() << endl;
         cout << "User Id: " << incomes[i].getUserId() << endl;
@@ -209,7 +210,7 @@ void ItemMenager :: quicksort(vector<Item>incomes, int left, int right)
     if (i<right) quicksort(incomes, i, right);
 
     showAllIncomesInOrder (incomes);
-       // return incomes;
+       // return incomes;*/
 }
 
 

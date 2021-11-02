@@ -33,6 +33,7 @@ void IncomeFile :: addIncomeToFile(Item income)
 }
 vector <Item> IncomeFile :: getIncomeFromFile(int idLoggedUser) {
     Item item;
+    int incomeDate;
     vector <Item> incomes;
     CMarkup xml;
     string fileNameWithIncomes = XmlFile :: getFileName();
@@ -55,13 +56,15 @@ vector <Item> IncomeFile :: getIncomeFromFile(int idLoggedUser) {
                 int itemId = atoi(xml.GetData().c_str());
                 item.setupItemId(itemId);
                 xml.FindElem("UserId");
-            int userId = atoi(xml.GetData().c_str());//atoi( MCD_2PCSZ(xml.GetData()));
+                int userId = atoi(xml.GetData().c_str());//atoi( MCD_2PCSZ(xml.GetData()));
             //if ( userId == idLoggedUser ) {
                 item.setupUserId(userId);
 
                 xml.FindElem( "Date");
                 string itemDate = xml.GetData();
-                item.setupStringDate(itemDate);
+                string itemDateWishDash = AdditionalMethods :: removeDashFromDate(itemDate);
+                int incomeDate = AdditionalMethods :: convertStringToInt(itemDateWishDash);
+                item.setupDate(incomeDate);
 
                 xml.FindElem( "Item");
                 string incomeName = xml.GetData();

@@ -19,6 +19,8 @@ class ItemMenager : public Item {
 
     struct intDate {
         int intDateToSort;
+        int firstDate;
+        int secondDate;
     };
 
 
@@ -55,7 +57,7 @@ public:
     /*struct sortByDate
     {
         inline bool operator() (intDate& firstDate, intDate& secondDate) {
-            return (firstDate.getIntDate() < secondDate.getIntDate());
+        return (firstDate.getIntDate() < secondDate.getIntDate());
         }
     };*/
 };
