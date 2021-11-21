@@ -52,6 +52,7 @@ public:
     void displayBalanceForCurrentMonth();
     void quicksort(vector<Item> incomes, int first, int second);
     void showAllIncomesInOrder(vector<Item> incomes);
+    void displayIncomeBalance();
     //void sortowanie(vector<Item>incomes);
 
     /*struct sortByDate

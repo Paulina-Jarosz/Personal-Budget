@@ -2,7 +2,7 @@
 
 void Item :: setupDate (int newDate) {
     if (newDate >= 0)
-        itemDate = newDate;
+        intDate = newDate;
 }
 
 void Item :: setupStringDate (string newDate) {

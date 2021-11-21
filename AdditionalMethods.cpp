@@ -100,7 +100,6 @@ string AdditionalMethods :: addDashToDate(string date) {
     string stringDateWithDash;
     stringDateWithDash = date.insert (4,1,'-');
     stringDateWithDash = stringDateWithDash.insert (7,1,'-');
-    cout << stringDateWithDash << endl;
 
     return stringDateWithDash;
 }

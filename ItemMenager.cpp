@@ -6,7 +6,7 @@ void ItemMenager :: addIncome()
     incomes.push_back(income);
     incomeFile.addIncomeToFile(income);
     cout << endl << "Income added to the file" << endl << endl;
-    showAllIncomes(income); //usunac jak kod bedzie ok
+    //showAllIncomes(income); //usunac jak kod bedzie ok
     system("pause");
 }
 
@@ -131,7 +131,9 @@ void ItemMenager :: showAllIncomes(Item income) {
         cout << "Item Id: " << income.getItemId() << endl;
         cout << "User Id: " << income.getUserId() << endl;
         //cout << "Item date: " << income.getItemDate() << endl;
-        cout << "Item date: " << income.getIntDate() << endl;
+        string iteamStringDate = AdditionalMethods :: convertIntToString (income.getIntDate());
+        string dateItemWithDash = AdditionalMethods :: addDashToDate(iteamStringDate);
+        cout << "Item date: " << dateItemWithDash << endl;
         cout << "Item name: " << income.getItemName() << endl;
         cout << "Item amount: " << income.getItemAmount() << endl << endl;
     //}
@@ -148,9 +150,8 @@ void ItemMenager :: showAllExpenses() {
     }
 }
 
-void ItemMenager :: displayBalanceForCurrentMonth(){
+void ItemMenager :: displayIncomeBalance(){
 
-    system("cls");
     if (!incomes.empty()) {
         cout << "             >>> Incomes: <<<" << endl;
         cout << "-----------------------------------------------" << endl;
@@ -164,8 +165,14 @@ void ItemMenager :: displayBalanceForCurrentMonth(){
     else {
         cout << endl << "There is no incomes" << endl << endl;
     }
+    //quicksort(incomes,  0, incomes.size()-1);
+}
+
+void ItemMenager :: displayBalanceForCurrentMonth(){
+
+    displayIncomeBalance();
+    quicksort(incomes,  0, incomes.size()-1);
     system("pause");
-    showAllIncomesInOrder (incomes);
     //quicksort(incomes,  0, incomes.size()-1);
     //sortowanie(incomes);
 
@@ -177,7 +184,10 @@ void ItemMenager :: showAllIncomesInOrder (vector<Item>incomes) {
     for (int i = 0; i < incomes.size(); i++) {
         cout << "Item Id: " << incomes[i].getItemId() << endl;
         cout << "User Id: " << incomes[i].getUserId() << endl;
-        cout << "Item date: " << incomes[i].getItemDate() << endl;
+        string iteamStringDate = AdditionalMethods :: convertIntToString (incomes[i].getIntDate());
+        string dateItemWithDash = AdditionalMethods :: addDashToDate(iteamStringDate);
+        cout << "Item date: " << dateItemWithDash << endl;
+        //cout << "Item date: " << incomes[i].getItemDate() << endl;
         cout << "Item name: " << incomes[i].getItemName() << endl;
         cout << "Item amount: " << incomes[i].getItemAmount() << endl << endl;
     }
@@ -205,12 +215,11 @@ void ItemMenager :: quicksort(vector<Item>incomes, int left, int right)
         }
     }
     while (i<=j);
-
     if (j>left) quicksort(incomes,left, j);
     if (i<right) quicksort(incomes, i, right);
 
     showAllIncomesInOrder (incomes);
-       // return incomes;*/
+    //return incomes;
 }
 
 
